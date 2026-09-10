@@ -68,7 +68,7 @@ This bot provides music playback functionality, meme generation, role management
 ### 3. ☁️ Deployment (Running 24/7)
 Since this project has a decoupled architecture, you need to deploy both the Backend API and the Python Bot.
 
-## Step 1: Deploying the Backend API (Node.js)
+### Step 1: Deploying the Backend API (Node.js)
 The easiest way to host the Express API is via a PaaS (Platform as a Service).
 
 - Push your code to GitHub.
@@ -83,7 +83,7 @@ The easiest way to host the Express API is via a PaaS (Platform as a Service).
 
 - Once deployed, copy the provided public URL (e.g., https://your-api.onrender.com).
 
-## Step 2: Deploying the Python Bot
+### Step 2: Deploying the Python Bot
 The bot requires continuous background execution.
 
 - Create a new Background Worker (Render) or a New Service (Railway).
@@ -96,7 +96,7 @@ The bot requires continuous background execution.
 
 Note regarding FFmpeg: If deploying to Render, you must add a "Buildpack" for FFmpeg so the server can process audio.
 
-## Alternative (VPS Deployment):
+### Alternative (VPS Deployment):
 If you have a Linux VPS (like DigitalOcean, AWS EC2, or Linode), you can run both services using pm2 to keep them alive after closing the terminal:
 
 * Start the Backend:
