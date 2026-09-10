@@ -4,6 +4,10 @@ import logging
 from dotenv import load_dotenv
 import os
 import asyncio
+import sys
+
+if sys.platform == 'win32':
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 load_dotenv()
 token = os.getenv('DISCORD_TOKEN')
@@ -13,10 +17,9 @@ intents.message_content = True
 intents.members = True
 intents.voice_states = True
 
-bot = commands.Bot(command_prefix='?', intents=intents)
+bot = commands.Bot(command_prefix='?', intents=intents, help_command=None)
 
 simple_role = "Peasant"
-
 
 async def load_extensions():
   for filename in os.listdir('./cogs'):
@@ -45,7 +48,7 @@ async def hello(ctx):
   await ctx.send(f"Hello {ctx.author.mention}!")
 
 @bot.command()
-async def helpp(ctx):
+async def help(ctx):
   await ctx.send("Use '?' or '/' before any of the mentioned commands \n "
                  "1) Music commands: \n"
                  "/play - ""name/url"" plays the mentioned song\n"
@@ -54,7 +57,7 @@ async def helpp(ctx):
                  "/resume - resumes the current song\n"
                  "/leave - stop the song, clears the queue and leaving the VC\n"
                  "2) diffrent utility commands\n"
-                 "?dm ""msg"" - sends the msg through the bot to the person mentioned\n " #need to add
+                 "?dm ""msg"" - sends the msg through the bot to the person mentioned\n "
                  "?poll ""msg"" - creates a poll with 'yes' or 'no comments")
 
 @bot.command()
