@@ -104,4 +104,4 @@ npm install -g pm2
 pm2 start server.js --name "DiscordAPI"
 
 * Start the Bot:
-pm2 start Bot.py --interpreter python3 --name "PiccoBot"
+pm2 start Bot.py --interpreter python3 --name "Your_Bot_Name"
